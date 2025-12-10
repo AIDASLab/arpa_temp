@@ -26,7 +26,7 @@ NORMALIZED=${NORMALIZED:-false}
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 
 # Set your wandb API key here
-export WANDB_API_KEY=9c2e7fba1823550f9d2f28b6d6e141982aeb7e3b
+export WANDB_API_KEY=999999
 
 run_eval() {
   local dataset_json=$1

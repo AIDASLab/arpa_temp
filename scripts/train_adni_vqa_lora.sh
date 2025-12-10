@@ -2,21 +2,26 @@
 
 set -euo pipefail
 
-# TRAIN_KEYS=${1:-ADNI_VQA,ADNI_VQA_HISTORY}
-TRAIN_KEYS=${1:-ADNI_VQA_AGE}
+# TRAIN_KEYS=${1:-ADNI_VQA,ADNI_VQA_HISTORY,ADNI_VQA_AGE}
+TRAIN_KEYS=${1:-ADNI_VQA_HISTORY}
 EVAL_KEYS=${2:-$TRAIN_KEYS}
 FINETUNE_MODE=${3:-${FINETUNE_MODE:-lora}}
 GENERATION_EVAL=${GENERATION_EVAL:-true}
 MASTER_PORT=${MASTER_PORT:-29500}
 EVAL_MASTER_PORT=${EVAL_MASTER_PORT:-$((MASTER_PORT+1))}
-OUTPUT_DIR=${OUTPUT_DIR:-output/adni_vqa_age_lora_128}
+OUTPUT_DIR=${OUTPUT_DIR:-output/adni_vqa_history_lora_128}
 RESUME_CHECKPOINT=${RESUME_CHECKPOINT:-}
 EVAL_LORA_PATH=${EVAL_LORA_PATH:-$OUTPUT_DIR}
+# (YS) Path to best checkpoint for evaluation
+BEST_EVAL_LORA_PATH=${BEST_EVAL_LORA_PATH:-$OUTPUT_DIR/best_checkpoint}
 NPROC=${NPROC:-8}
 PRECISION=${PRECISION:-auto}
 MAX_GRAD_NORM=${MAX_GRAD_NORM:-1.0}
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+
+# (YS) Set your wandb API key here
+export WANDB_API_KEY=9c2e7fba1823550f9d2f28b6d6e141982aeb7e3b
 
 TRAIN_CMD=(
   torchrun --nproc_per_node=8 --master_port="${MASTER_PORT}"
@@ -48,13 +53,15 @@ fi
 
 "${TRAIN_CMD[@]}"
 
+# (YS) I changed --lora_path to use the best checkpoint for evaluation
+# If you want to use the last checkpoint, change it back to --lora_path "$EVAL_LORA_PATH"
 run_eval() {
   local dataset_json=$1
   local label=$2
   torchrun --nproc_per_node="${NPROC}" --master_port="${EVAL_MASTER_PORT}" \
     src/train/eval_adni_vqa_lora.py \
     --model_name MagicXin/Med3DVLM-Qwen-2.5-7B \
-    --lora_path "$EVAL_LORA_PATH" \
+    --lora_path "$BEST_EVAL_LORA_PATH" \
     --dataset_json "$dataset_json" \
     --dataset_label "$label" \
     --trust_remote_code

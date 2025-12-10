@@ -1,0 +1,294 @@
+{
+  "dataset": "ARPA_Sal_VQA_AGE",
+  "task": "age_regression",
+  "source_csvs": {
+    "arpa_sal": "/home/arpa/arpa_temp/ARPA_Sal.csv"
+  },
+  "mri_root": null,
+  "label_space": [
+    "continuous_age_years"
+  ],
+  "num_samples": 10,
+  "source_counts": {
+    "total": 10
+  },
+  "notes": {
+    "question_template": "MRI scan for a <sex> participant with BMI <bmi> and SBP <sbp> mmHg. Depression status: <depression>. Cognitive diagnosis: <diagnosis>. Predict age in years (one decimal).",
+    "diagnosis_code_mapping": {
+      "0": "No Cognitive Impairment",
+      "1": "Mild Cognitive Impairment",
+      "2": "Alzheimer's Dementia"
+    },
+    "sex_code_mapping": {
+      "0": "female",
+      "1": "male"
+    },
+    "depression_flag_mapping": {
+      "0": "no",
+      "1": "yes"
+    }
+  },
+  "split": "test",
+  "samples": [
+    {
+      "image_id": "ARPA000328",
+      "image_path": "path/to/image/ARPA000328",
+      "ptid": "ARPA000328",
+      "visit": null,
+      "acq_date": null,
+      "source": "arpa_sal",
+      "demographics": {
+        "age": "22",
+        "sex": "male"
+      },
+      "clinical": {
+        "bmi": 18.6,
+        "sbp": 98.2,
+        "gds_total": 13.8,
+        "depression": false,
+        "cog_brain_age": 36.0,
+        "attention_bpi": 21.2,
+        "memory_bpi": 1.4,
+        "communication_bpi": 8.9
+      },
+      "question": "MRI scan for a male participant with BMI 18.6 and systolic blood pressure 98.2 mmHg. Depression status: no depression. Cognitive diagnosis: Alzheimer's Dementia. Predict the subject's age in years (one decimal).",
+      "answer": 22.0,
+      "answer_code": 22.0,
+      "answer_units": "years"
+    },
+    {
+      "image_id": "ARPA000367",
+      "image_path": "path/to/image/ARPA000367",
+      "ptid": "ARPA000367",
+      "visit": null,
+      "acq_date": null,
+      "source": "arpa_sal",
+      "demographics": {
+        "age": "47",
+        "sex": "female"
+      },
+      "clinical": {
+        "bmi": 21.6,
+        "sbp": 159.5,
+        "gds_total": 2.1,
+        "depression": false,
+        "cog_brain_age": 43.0,
+        "attention_bpi": 12.2,
+        "memory_bpi": 6.9,
+        "communication_bpi": 66.7
+      },
+      "question": "MRI scan for a female participant with BMI 21.6 and systolic blood pressure 159.5 mmHg. Depression status: no depression. Cognitive diagnosis: No Cognitive Impairment. Predict the subject's age in years (one decimal).",
+      "answer": 47.0,
+      "answer_code": 47.0,
+      "answer_units": "years"
+    },
+    {
+      "image_id": "ARPA000184",
+      "image_path": "path/to/image/ARPA000184",
+      "ptid": "ARPA000184",
+      "visit": null,
+      "acq_date": null,
+      "source": "arpa_sal",
+      "demographics": {
+        "age": "59",
+        "sex": "male"
+      },
+      "clinical": {
+        "bmi": 31.1,
+        "sbp": 132.9,
+        "gds_total": 13.3,
+        "depression": false,
+        "cog_brain_age": 77.0,
+        "attention_bpi": 19.8,
+        "memory_bpi": 36.8,
+        "communication_bpi": 44.0
+      },
+      "question": "MRI scan for a male participant with BMI 31.1 and systolic blood pressure 132.9 mmHg. Depression status: no depression. Cognitive diagnosis: Mild Cognitive Impairment. Predict the subject's age in years (one decimal).",
+      "answer": 59.0,
+      "answer_code": 59.0,
+      "answer_units": "years"
+    },
+    {
+      "image_id": "ARPA000024",
+      "image_path": "path/to/image/ARPA000024",
+      "ptid": "ARPA000024",
+      "visit": null,
+      "acq_date": null,
+      "source": "arpa_sal",
+      "demographics": {
+        "age": "70",
+        "sex": "male"
+      },
+      "clinical": {
+        "bmi": 33.7,
+        "sbp": 159.3,
+        "gds_total": 14.9,
+        "depression": false,
+        "cog_brain_age": 66.0,
+        "attention_bpi": 5.8,
+        "memory_bpi": 15.8,
+        "communication_bpi": 47.5
+      },
+      "question": "MRI scan for a male participant with BMI 33.7 and systolic blood pressure 159.3 mmHg. Depression status: no depression. Cognitive diagnosis: Alzheimer's Dementia. Predict the subject's age in years (one decimal).",
+      "answer": 70.0,
+      "answer_code": 70.0,
+      "answer_units": "years"
+    },
+    {
+      "image_id": "ARPA000274",
+      "image_path": "path/to/image/ARPA000274",
+      "ptid": "ARPA000274",
+      "visit": null,
+      "acq_date": null,
+      "source": "arpa_sal",
+      "demographics": {
+        "age": "31",
+        "sex": "male"
+      },
+      "clinical": {
+        "bmi": 36.6,
+        "sbp": 141.2,
+        "gds_total": 4.9,
+        "depression": true,
+        "cog_brain_age": 39.0,
+        "attention_bpi": 8.2,
+        "memory_bpi": 1.4,
+        "communication_bpi": 23.7
+      },
+      "question": "MRI scan for a male participant with BMI 36.6 and systolic blood pressure 141.2 mmHg. Depression status: depression. Cognitive diagnosis: No Cognitive Impairment. Predict the subject's age in years (one decimal).",
+      "answer": 31.0,
+      "answer_code": 31.0,
+      "answer_units": "years"
+    },
+    {
+      "image_id": "ARPA000109",
+      "image_path": "path/to/image/ARPA000109",
+      "ptid": "ARPA000109",
+      "visit": null,
+      "acq_date": null,
+      "source": "arpa_sal",
+      "demographics": {
+        "age": "46",
+        "sex": "male"
+      },
+      "clinical": {
+        "bmi": 18.6,
+        "sbp": 149.6,
+        "gds_total": 11.4,
+        "depression": false,
+        "cog_brain_age": 30.0,
+        "attention_bpi": 32.2,
+        "memory_bpi": 17.7,
+        "communication_bpi": 17.3
+      },
+      "question": "MRI scan for a male participant with BMI 18.6 and systolic blood pressure 149.6 mmHg. Depression status: no depression. Cognitive diagnosis: Alzheimer's Dementia. Predict the subject's age in years (one decimal).",
+      "answer": 46.0,
+      "answer_code": 46.0,
+      "answer_units": "years"
+    },
+    {
+      "image_id": "ARPA000441",
+      "image_path": "path/to/image/ARPA000441",
+      "ptid": "ARPA000441",
+      "visit": null,
+      "acq_date": null,
+      "source": "arpa_sal",
+      "demographics": {
+        "age": "30",
+        "sex": "female"
+      },
+      "clinical": {
+        "bmi": 24.6,
+        "sbp": 95.1,
+        "gds_total": 2.6,
+        "depression": true,
+        "cog_brain_age": 65.0,
+        "attention_bpi": 9.0,
+        "memory_bpi": 24.6,
+        "communication_bpi": 65.7
+      },
+      "question": "MRI scan for a female participant with BMI 24.6 and systolic blood pressure 95.1 mmHg. Depression status: depression. Cognitive diagnosis: Alzheimer's Dementia. Predict the subject's age in years (one decimal).",
+      "answer": 30.0,
+      "answer_code": 30.0,
+      "answer_units": "years"
+    },
+    {
+      "image_id": "ARPA000394",
+      "image_path": "path/to/image/ARPA000394",
+      "ptid": "ARPA000394",
+      "visit": null,
+      "acq_date": null,
+      "source": "arpa_sal",
+      "demographics": {
+        "age": "28",
+        "sex": "male"
+      },
+      "clinical": {
+        "bmi": 25.3,
+        "sbp": 166.3,
+        "gds_total": 19.4,
+        "depression": false,
+        "cog_brain_age": 62.0,
+        "attention_bpi": 27.4,
+        "memory_bpi": 22.5,
+        "communication_bpi": 9.7
+      },
+      "question": "MRI scan for a male participant with BMI 25.3 and systolic blood pressure 166.3 mmHg. Depression status: no depression. Cognitive diagnosis: Mild Cognitive Impairment. Predict the subject's age in years (one decimal).",
+      "answer": 28.0,
+      "answer_code": 28.0,
+      "answer_units": "years"
+    },
+    {
+      "image_id": "ARPA000079",
+      "image_path": "path/to/image/ARPA000079",
+      "ptid": "ARPA000079",
+      "visit": null,
+      "acq_date": null,
+      "source": "arpa_sal",
+      "demographics": {
+        "age": "69",
+        "sex": "female"
+      },
+      "clinical": {
+        "bmi": 32.1,
+        "sbp": 132.4,
+        "gds_total": 5.5,
+        "depression": false,
+        "cog_brain_age": 75.0,
+        "attention_bpi": 0.7,
+        "memory_bpi": 41.3,
+        "communication_bpi": 61.5
+      },
+      "question": "MRI scan for a female participant with BMI 32.1 and systolic blood pressure 132.4 mmHg. Depression status: no depression. Cognitive diagnosis: Mild Cognitive Impairment. Predict the subject's age in years (one decimal).",
+      "answer": 69.0,
+      "answer_code": 69.0,
+      "answer_units": "years"
+    },
+    {
+      "image_id": "ARPA000450",
+      "image_path": "path/to/image/ARPA000450",
+      "ptid": "ARPA000450",
+      "visit": null,
+      "acq_date": null,
+      "source": "arpa_sal",
+      "demographics": {
+        "age": "81",
+        "sex": "female"
+      },
+      "clinical": {
+        "bmi": 26.0,
+        "sbp": 95.5,
+        "gds_total": 9.7,
+        "depression": false,
+        "cog_brain_age": 55.0,
+        "attention_bpi": 23.7,
+        "memory_bpi": 42.0,
+        "communication_bpi": 13.7
+      },
+      "question": "MRI scan for a female participant with BMI 26.0 and systolic blood pressure 95.5 mmHg. Depression status: no depression. Cognitive diagnosis: Alzheimer's Dementia. Predict the subject's age in years (one decimal).",
+      "answer": 81.0,
+      "answer_code": 81.0,
+      "answer_units": "years"
+    }
+  ]
+}

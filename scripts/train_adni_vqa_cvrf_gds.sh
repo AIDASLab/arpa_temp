@@ -20,6 +20,8 @@ VISION_FULL_FT=${VISION_FULL_FT:-true}
 VISION_FULL_FT_MODULES=${VISION_FULL_FT_MODULES:-"vision_tower,vision_encoder,vision_model,visual_encoder"}
 VISUAL_PROJ_FULL_FT=${VISUAL_PROJ_FULL_FT:-true}
 VISUAL_PROJ_MODULES=${VISUAL_PROJ_MODULES:-"mm_projector,multimodal_projector,visual_projector,vision_projector,vision_proj,visual_proj"}
+PROFILE_FLOPS=${PROFILE_FLOPS:-false}
+PROFILE_FLOPS_STEPS=${PROFILE_FLOPS_STEPS:-1}
 
 REGRESSION_LOSS_TYPE=${REGRESSION_LOSS_TYPE:-gaussian}
 REGRESSION_MLE_VARIANCE=${REGRESSION_MLE_VARIANCE:-1.0}
@@ -175,6 +177,9 @@ for idx in "${!TRAIN_KEYS_ARRAY[@]}"; do
     --regression_huber_beta "$REGRESSION_HUBER_BETA"
     --trust_remote_code
   )
+  if [[ "${PROFILE_FLOPS}" == "true" ]]; then
+    TRAIN_CMD+=(--profile_flops --profile_flops_steps "${PROFILE_FLOPS_STEPS}")
+  fi
   if [[ "${VISION_FULL_FT}" == "true" ]]; then
     TRAIN_CMD+=(--vision_full_finetune --vision_full_finetune_modules "${VISION_FULL_FT_MODULES}")
   fi

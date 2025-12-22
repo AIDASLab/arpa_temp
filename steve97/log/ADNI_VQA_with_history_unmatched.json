@@ -1,0 +1,272 @@
+[
+  {
+    "ptid": "007_S_0128",
+    "visit": "sc",
+    "acq_date": "1/16/2006",
+    "image_id": "I10007"
+  },
+  {
+    "ptid": "007_S_0316",
+    "visit": "sc",
+    "acq_date": "3/29/2006",
+    "image_id": "I12616"
+  },
+  {
+    "ptid": "099_S_0534",
+    "visit": "sc",
+    "acq_date": "5/04/2006",
+    "image_id": "I14611"
+  },
+  {
+    "ptid": "035_S_0555",
+    "visit": "sc",
+    "acq_date": "6/06/2006",
+    "image_id": "I16692"
+  },
+  {
+    "ptid": "037_S_0588",
+    "visit": "sc",
+    "acq_date": "6/12/2006",
+    "image_id": "I19637"
+  },
+  {
+    "ptid": "130_S_0505",
+    "visit": "sc",
+    "acq_date": "7/25/2006",
+    "image_id": "I19701"
+  },
+  {
+    "ptid": "073_S_2153",
+    "visit": "scmri",
+    "acq_date": "11/05/2010",
+    "image_id": "I203126"
+  },
+  {
+    "ptid": "012_S_0932",
+    "visit": "sc",
+    "acq_date": "9/20/2006",
+    "image_id": "I25150"
+  },
+  {
+    "ptid": "012_S_0932",
+    "visit": "sc",
+    "acq_date": "9/20/2006",
+    "image_id": "I25151"
+  },
+  {
+    "ptid": "003_S_0907",
+    "visit": "sc",
+    "acq_date": "9/11/2006",
+    "image_id": "I25737"
+  },
+  {
+    "ptid": "073_S_4300",
+    "visit": "v02",
+    "acq_date": "10/12/2011",
+    "image_id": "I260734"
+  },
+  {
+    "ptid": "073_S_4311",
+    "visit": "v02",
+    "acq_date": "10/17/2011",
+    "image_id": "I261219"
+  },
+  {
+    "ptid": "073_S_4312",
+    "visit": "v02",
+    "acq_date": "10/17/2011",
+    "image_id": "I261231"
+  },
+  {
+    "ptid": "073_S_4382",
+    "visit": "v02",
+    "acq_date": "11/15/2011",
+    "image_id": "I266888"
+  },
+  {
+    "ptid": "073_S_4360",
+    "visit": "v02",
+    "acq_date": "11/04/2011",
+    "image_id": "I267435"
+  },
+  {
+    "ptid": "073_S_4393",
+    "visit": "v02",
+    "acq_date": "11/22/2011",
+    "image_id": "I268159"
+  },
+  {
+    "ptid": "141_S_0915",
+    "visit": "sc",
+    "acq_date": "7/06/2006",
+    "image_id": "I26835"
+  },
+  {
+    "ptid": "941_S_4376",
+    "visit": "v02",
+    "acq_date": "6/01/2011",
+    "image_id": "I269043"
+  },
+  {
+    "ptid": "073_S_4403",
+    "visit": "v02",
+    "acq_date": "11/28/2011",
+    "image_id": "I269287"
+  },
+  {
+    "ptid": "141_S_4426",
+    "visit": "v02",
+    "acq_date": "12/02/2011",
+    "image_id": "I273508"
+  },
+  {
+    "ptid": "073_S_4443",
+    "visit": "v02",
+    "acq_date": "12/22/2011",
+    "image_id": "I274544"
+  },
+  {
+    "ptid": "073_S_4540",
+    "visit": "v02",
+    "acq_date": "2/10/2012",
+    "image_id": "I283906"
+  },
+  {
+    "ptid": "073_S_4552",
+    "visit": "v02",
+    "acq_date": "2/15/2012",
+    "image_id": "I285080"
+  },
+  {
+    "ptid": "073_S_4559",
+    "visit": "v02",
+    "acq_date": "2/24/2012",
+    "image_id": "I286553"
+  },
+  {
+    "ptid": "073_S_4614",
+    "visit": "v02",
+    "acq_date": "3/16/2012",
+    "image_id": "I290667"
+  },
+  {
+    "ptid": "036_S_4715",
+    "visit": "v02",
+    "acq_date": "3/19/2012",
+    "image_id": "I302655"
+  },
+  {
+    "ptid": "073_S_4739",
+    "visit": "v02",
+    "acq_date": "5/16/2012",
+    "image_id": "I304867"
+  },
+  {
+    "ptid": "073_S_4748",
+    "visit": "v02",
+    "acq_date": "5/18/2012",
+    "image_id": "I305337"
+  },
+  {
+    "ptid": "073_S_4777",
+    "visit": "v02",
+    "acq_date": "6/01/2012",
+    "image_id": "I307706"
+  },
+  {
+    "ptid": "073_S_4825",
+    "visit": "v02",
+    "acq_date": "6/26/2012",
+    "image_id": "I312909"
+  },
+  {
+    "ptid": "073_S_4762",
+    "visit": "v02",
+    "acq_date": "5/24/2012",
+    "image_id": "I314311"
+  },
+  {
+    "ptid": "073_S_4853",
+    "visit": "v02",
+    "acq_date": "7/11/2012",
+    "image_id": "I315948"
+  },
+  {
+    "ptid": "073_S_4986",
+    "visit": "v02",
+    "acq_date": "10/04/2012",
+    "image_id": "I338196"
+  },
+  {
+    "ptid": "013_S_4985",
+    "visit": "v02",
+    "acq_date": "7/05/2012",
+    "image_id": "I339623"
+  },
+  {
+    "ptid": "073_S_5016",
+    "visit": "v02",
+    "acq_date": "10/25/2012",
+    "image_id": "I342679"
+  },
+  {
+    "ptid": "073_S_5090",
+    "visit": "v02",
+    "acq_date": "2/07/2013",
+    "image_id": "I359044"
+  },
+  {
+    "ptid": "131_S_5138",
+    "visit": "v02",
+    "acq_date": "4/02/2013",
+    "image_id": "I367565"
+  },
+  {
+    "ptid": "073_S_5167",
+    "visit": "v02",
+    "acq_date": "4/26/2013",
+    "image_id": "I376073"
+  },
+  {
+    "ptid": "073_S_5227",
+    "visit": "v02",
+    "acq_date": "6/17/2013",
+    "image_id": "I377325"
+  },
+  {
+    "ptid": "128_S_5123",
+    "visit": "v02",
+    "acq_date": "12/20/2012",
+    "image_id": "I378115"
+  },
+  {
+    "ptid": "135_S_5269",
+    "visit": "v02",
+    "acq_date": "7/26/2013",
+    "image_id": "I382724"
+  },
+  {
+    "ptid": "073_S_5023",
+    "visit": "v02",
+    "acq_date": "6/13/2012",
+    "image_id": "I393941"
+  },
+  {
+    "ptid": "007_S_1304",
+    "visit": "sc",
+    "acq_date": "2/13/2007",
+    "image_id": "I40118"
+  },
+  {
+    "ptid": "003_S_0908",
+    "visit": "sc",
+    "acq_date": "9/12/2006",
+    "image_id": "I54988"
+  },
+  {
+    "ptid": "128_S_1406",
+    "visit": "sc",
+    "acq_date": "5/18/2007",
+    "image_id": "I55060"
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "loss_type": "gaussian",
+  "mle_variance": 1.0,
+  "huber_beta": 1.0
+}

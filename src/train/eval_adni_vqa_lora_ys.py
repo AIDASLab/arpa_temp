@@ -134,6 +134,40 @@ def sanitize_metric_key(value: str) -> str:
     return cleaned or "unknown"
 
 
+def _unwrap_backbone(model: torch.nn.Module) -> torch.nn.Module:
+    if hasattr(model, "backbone"):
+        return model.backbone
+    if hasattr(model, "get_base_model"):
+        return model.get_base_model()
+    return model
+
+
+def _resolve_zero_mri_size(model: torch.nn.Module, args: argparse.Namespace) -> Tuple[int, int, int]:
+    if args.zero_mri_size:
+        parts = [int(p) for p in args.zero_mri_size.split(",")]
+        if len(parts) != 3:
+            raise ValueError("zero_mri_size must be 'H,W,T' (e.g., 512,512,256).")
+        return parts[0], parts[1], parts[2]
+
+    backbone = _unwrap_backbone(model)
+    vision_tower = None
+    if hasattr(backbone, "get_model"):
+        core = backbone.get_model()
+        if hasattr(core, "get_vision_tower"):
+            vision_tower = core.get_vision_tower()
+    if vision_tower is not None:
+        input_size = getattr(vision_tower.config, "input_size", None)
+        if input_size and len(input_size) == 3:
+            return int(input_size[0]), int(input_size[1]), int(input_size[2])
+
+    config = getattr(backbone, "config", None)
+    input_size = getattr(config, "input_size", None) if config is not None else None
+    if input_size and len(input_size) == 3:
+        return int(input_size[0]), int(input_size[1]), int(input_size[2])
+
+    return 512, 512, 256
+
+
 def evaluate(args: argparse.Namespace) -> Optional[Dict[str, float]]:
     maybe_init_distributed()
     local_rank = int(os.environ.get("LOCAL_RANK", 0))
@@ -253,6 +287,14 @@ def evaluate(args: argparse.Namespace) -> Optional[Dict[str, float]]:
     model.to(device)
     model.eval()
 
+    zero_image: Optional[torch.Tensor] = None
+    if args.zero_mri:
+        h, w, t = _resolve_zero_mri_size(model, args)
+        dtype = next(model.parameters()).dtype
+        zero_image = torch.zeros((1, 1, t, h, w), dtype=dtype, device=device)
+        if get_rank() == 0:
+            print(f"[Eval] Using zero MRI input (C,D,H,W=1,{t},{h},{w}).")
+
     if get_rank() == 0:
         print(
             f"[Eval] Dataset '{dataset_label}' -> {dataset_path} "
@@ -286,6 +328,7 @@ def evaluate(args: argparse.Namespace) -> Optional[Dict[str, float]]:
             padding="longest",
         )
         batch = {k: v.to(device) for k, v in encoded.items()}
+        images = zero_image if args.zero_mri else None
 
         if is_regression and CausalLMWithRegressionHead is not None:
             # === 회귀: regression head의 스칼라 출력 사용 ===
@@ -293,6 +336,7 @@ def evaluate(args: argparse.Namespace) -> Optional[Dict[str, float]]:
                 outputs = model(
                     input_ids=batch["input_ids"],
                     attention_mask=batch.get("attention_mask"),
+                    images=images,
                 )
                 # CausalLMWithRegressionHead에서 logits의 마지막 차원 1짜리 스칼라
                 if isinstance(outputs, dict):
@@ -326,6 +370,7 @@ def evaluate(args: argparse.Namespace) -> Optional[Dict[str, float]]:
                 outputs = model.generate(
                     inputs=input_ids,
                     **batch,
+                    images=images,
                     max_new_tokens=args.max_new_tokens,
                 )
 
@@ -459,6 +504,16 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--dataset_label", default="")
     parser.add_argument("--max_new_tokens", type=int, default=64)
     parser.add_argument("--trust_remote_code", action="store_true")
+    parser.add_argument(
+        "--zero_mri",
+        action="store_true",
+        help="Use a zero-valued MRI tensor instead of loading files.",
+    )
+    parser.add_argument(
+        "--zero_mri_size",
+        default="",
+        help="Override zero MRI size as 'H,W,T' (e.g., 512,512,256).",
+    )
     parser.add_argument(
         "--use_wandb",
         dest="use_wandb",
